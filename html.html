@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="color:Background" content="#3b627e" />   
+    <meta name="font:Title" content="Arial" />
+    <meta name="font:Body" content="Arial" />
+    <meta name="font:Accent" content="Lucida Sans" />
+    <meta name="if:Show People I Follow" content="1" />
+    <meta name="if:Show Tags" content="1" />
+    <meta name="if:Show Album Art on Audio Posts" content="1" />
+    <meta name="if:Enable Jump Pagination" content="0" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="image:Header" content="" />
+    <meta name="image:Background" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>
+      {Title}
+      {block:SearchPage}, 
+      {lang:Search results for SearchQuery}
+      {/block:SearchPage}{block:PostSummary},
+      {PostSummary}{/block:PostSummary}
+    </title>
+
+    {block:Description}
+      <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+
+    <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/u/17230668/blog.ojtwisted/stylesheets/screen.css">
+
+    <style type="text/css">{CustomCSS}</style>
+
+    <script type="text/javascript" src="http://use.typekit.com/nfq7nin.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17890678-4']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </head>
+
+  <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=224767284247554";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+
+    <header>
+        <a href="/"><h1>{Title}</h1></a>
+        <h2>{Description}</h2>
+    </header>
+          
+    <div id="wrapper">
+        <!--
+        <div id="title">
+          <a href="/">
+            {block:IfHeaderImage}<img src="{image:Header}" />{/block:IfHeaderImage}
+            {block:IfNotHeaderImage}{Title}{/block:IfNotHeaderImage}
+          </a>
+        </div>
+        -->
+      {block:IndexPage}
+        <div id="sidebar">
+          <div class="oj_avatar"><img src="{PortraitURL-128}" width="100%"></div>
+          <div class="oj_bio">Front-end designer & developer, start-up & food enthusiast living in San Francisco, CA originally from Kabul, Afghanistan</div>
+          <ul class="links">
+            <li><a href="http://ojtwisted.com" class="oj_portfolio">Portfolio</a></li>
+            <li><a href="http://twitter.com/#!/ojtwisted" class="oj_twitter">Tweet me</a></li>
+            <li><a href="http://www.linkedin.com/pub/omar-jalalzada/1b/bb2/93b" class="oj_linkedin">Linkedin</a></li>
+          </ul>
+        </div> <!-- closing #sidebar -->
+      {/block:IndexPage}
+
+      <div id="content">
+
+        <!-- block:SearchPage -->
+<!--        {block:SearchPage}
+            {block:SearchResults}
+                <div id="searchresults">{lang:SearchResultCount results for SearchQuery 2}</div>
+            {/block:SearchResults}
+            
+            {block:NoSearchResults}
+                <div id="searchresults">{lang:No search results for SearchQuery 2}</div>
+            {/block:NoSearchResults}
+        {/block:SearchPage} -->
+        <!-- /block:SearchPage -->
+        
+        <!-- block:Posts -->
+        {block:Posts}
+        <div class="oj_post_wrapper {block:IndexPage} oj_index_page_wrappers {/block:IndexPage} {block:PermalinkPage}oj_prema_page_wrappers{/block:PermalinkPage}">
+          <div class="oj_post {PostType} ">
+
+              {block:Reblog}
+                <div class="oj_reblog">
+              {/block:Reblog}
+
+              <div class="oj_post_type {PostType}  ">
+                  {PostType}
+              </div>
+
+              {block:Reblog}
+              </div>
+              {/block:Reblog}
+            
+            {block:Photo}
+            <!-- block:Photo -->
+              <a class="oj_post_title" href="{Permalink}">{Caption}</a>
+<!--               {block:RebloggedFrom}
+                <p class="oj_testing">
+                    {ReblogParentName}
+                </p>
+              {/block:RebloggedFrom} -->
+              {block:PermalinkPage}
+              <div class="mw_perma_page">
+                <div class="media">
+                  {LinkOpenTag}
+                    <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+                  {LinkCloseTag}
+                </div>
+
+                <div class="oj_share_optinos">
+                  <div class="oj_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ojtwisted">Tweet</a>
+                  </div>
+                  <div class="oj_facebook">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="lucida grande"></div>
+                  </div>
+                  <div class="oj_fb_comments">
+                    <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="320"></div>
+                  </div>
+                </div>
+
+                {block:NoteCount}
+                <div class="oj_notes_container">
+                  <div class="oj_note_coumt">
+                    <span class="oj_heart">♥ </span>{NoteCount}
+                  </div>
+                  {PostNotes}
+                </div>
+                {/block:NoteCount}  
+
+              </div>
+              {/block:PermalinkPage}
+            <!-- /block:Photo -->
+            {/block:Photo}
+            
+                
+            
+            {block:Quote}
+              <!-- block:Quote -->
+              <a class="oj_post_title" href="{Permalink}">"{Quote}"{block:Source} - <span class="oj_qoute_src">{Source}</span>{/block:Source}</a>
+              <!-- /block:Quote -->
+
+              {block:PermalinkPage}
+              <div class="mw_perma_page">
+
+                <div class="oj_share_optinos">
+                  <div class="oj_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ojtwisted">Tweet</a>
+                  </div>
+                  <div class="oj_facebook">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="lucida grande"></div>
+                  </div>
+
+                  <div class="oj_fb_comments">
+                    <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="320"></div>
+                  </div>
+                </div>
+
+                {block:NoteCount}
+                <div class="oj_notes_container">
+                  <div class="oj_note_coumt">
+                    <span class="oj_heart">♥ </span>{NoteCount}
+                  </div>
+                  {PostNotes}
+                </div>
+                {/block:NoteCount}  
+
+              </div>
+              {/block:PermalinkPage}
+            <!-- /block:Photo -->
+            {/block:Photo}
+            {/block:Quote}
+            
+
+            
+            {block:Text}          
+            <!-- block:Text -->
+              {block:Title}
+                  <a class="oj_post_title" href="{Permalink}">
+                    <div class="title">{Title}</div>
+                  </a>
+              {/block:Title}
+                
+                
+              {block:PermalinkPage}
+              <div class="mw_perma_page">
+                <div class="copy">{Body}</div>
+                
+                <div class="oj_share_optinos">
+                  <div class="oj_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ojtwisted">Tweet</a>
+                  </div>
+                  <div class="oj_facebook">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="lucida grande"></div>
+                  </div>
+
+                  <div class="oj_fb_comments">
+                    <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="320"></div>
+                  </div>
+                </div>
+
+                {block:NoteCount}
+                <div class="oj_notes_container">
+                  <div class="oj_note_coumt">
+                    <span class="oj_heart">♥ </span>{NoteCount}
+                  </div>
+                  {PostNotes}
+                </div>
+                {/block:NoteCount}  
+
+
+              </div>
+              {/block:PermalinkPage}
+            <!-- /block:Text -->
+            {/block:Text}
+            
+
+            
+            {block:Link}
+            <!-- block:Link -->
+              <div class="oj_post_title">
+                <a href="{Permalink}" {Target}>{Name} &raquo;</a>
+              </div>
+
+              
+              {block:PermalinkPage}
+              <div class="mw_perma_page">
+                <a href="{URL}" {Target}>GO TO LINK!</a> 
+                {block:Description}
+                   <div class="copy">{Description}</div>
+                {/block:Description}
+
+                <div class="oj_share_optinos">
+                  <div class="oj_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ojtwisted">Tweet</a>
+                  </div>
+                  <div class="oj_facebook">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="lucida grande"></div>
+                  </div>
+  
+                  <div class="oj_fb_comments">
+                    <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="320"></div>
+                  </div>
+                </div>
+
+
+                {block:NoteCount}
+                <div class="oj_notes_container">
+                  <div class="oj_note_coumt">
+                    <span class="oj_heart">♥ </span>{NoteCount}
+                  </div>
+                  {PostNotes}
+                </div>
+                {/block:NoteCount}  
+
+              </div>
+              {/block:PermalinkPage}
+              
+            <!-- /block:Link -->
+            {/block:Link}
+            
+
+            
+            {block:Video}
+            <!-- block:Video -->
+              <a class="oj_post_title" href="{Permalink}">{Caption}</a>
+
+              {block:PermalinkPage}
+              <div class="mw_perma_page">
+                <div class="oj_main_video">{Video-500}</div>
+
+                <div class="oj_share_optinos">
+                  <div class="oj_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ojtwisted">Tweet</a>
+                  </div>
+                  <div class="oj_facebook">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="lucida grande"></div>
+                  </div>
+
+                  <div class="oj_fb_comments">
+                    <div class="fb-comments" data-num-posts="2" data-width="470"></div>
+                  </div>
+                </div>
+
+                {block:NoteCount}
+                <div class="oj_notes_container">
+                  <div class="oj_note_coumt">
+                    <span class="oj_heart">♥ </span>{NoteCount}
+                  </div>
+                  {PostNotes}
+                </div>
+                {/block:NoteCount}  
+
+              </div>
+              {/block:PermalinkPage}
+            <!-- /block:Video -->
+            {/block:Video}
+
+            <!-- block:Date -->
+            {block:Date}       
+              <div class="oj_date {block:PermalinkPage}oj_perma_page_opacity{/block:PermalinkPage}">
+                 <span class="oj_date_day">{ShortMonth}</span>
+                 <span class="oj_date_day_digit">{DayOfMonthWithZero}{DayOfMonthSuffix}</span>
+                 <span class="oj_date_year">{Year}</span>
+              </div>
+            {/block:Date}
+            <!-- /block:Date -->
+
+            </div>
+        </div>
+
+        {/block:Posts}
+        <!-- /block:Posts -->
+          
+          {block:Pagination}
+              <div id="navigation" {block:IfEnableJumpPagination}class="jump_pagination"{/block:IfEnableJumpPagination}>
+                  {block:PreviousPage}<a href="{PreviousPage}">&larr; {lang:Previous}</a>{/block:PreviousPage}
+                  
+                  {block:IfEnableJumpPagination}
+                      {block:JumpPagination length="5"}
+                          {block:CurrentPage}
+                              <span class="current_page">{PageNumber}</span>
+                          {/block:CurrentPage}
+                          
+                          {block:JumpPage}
+                              <a class="jump_page" href="{URL}">{PageNumber}</a>
+                          {/block:JumpPage}
+                          
+                      {/block:JumpPagination}
+                  {/block:IfEnableJumpPagination}
+                  
+                  {block:NextPage}<a href="{NextPage}">{lang:Next page} &rarr;</a>{/block:NextPage}
+              </div>
+          {/block:Pagination}
+
+        <footer>
+        © Omar Jalalzada {CopyrightYears}, All right reserved | Theme designed by <a href="http://ojtwisted.com">me</a>
+        </footer>
+
+      </div> <!-- Closig #content--> 
+
+
+
+      {block:PermalinkPage}
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      {/block:PermalinkPage}
+
+  </body>
+
+</html>
